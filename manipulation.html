@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">helo world</h1>
+
+    <p class="content">ingin menjadi programmer</p>
+
+    <a class="link" target="_blank">google</a>
+
+    <div id="root"></div>
+
+    <script>
+        // innerHTML
+        const elTitle = document.getElementById('title')
+        elTitle.innerHTML = "belajar dom di <a href='https://google.com'> google</a>"
+
+        // element.style.<properti>
+        const elContent = document.querySelector(".content")
+        elContent.style.color = "red"
+        elContent.style.fontSize = "30px"
+        // elContent.style = "background-color: yellow; color: red;"
+
+        // setAtribut
+
+        const elLink = document.querySelector('.link')
+        // console.log(elLink);
+        elLink.setAttribute('href', 'https://google.com')
+
+        // console.log(elLink.getAttribute('target'))
+
+        elLink.removeAttribute('target')
+        elTitle.classList.add('blue')
+
+
+
+        // manipulasi node
+
+        const elP = document.createElement('p')
+
+        const textP = document.createTextNode("saya balajar Javascript DOM")
+
+        elP.appendChild(textP)
+
+
+        const elRoot = document.getElementById('root')
+        elRoot.appendChild(elP)
+    </script>
+</body>
+</html>

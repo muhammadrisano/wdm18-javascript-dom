@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p id="content">belajar menggunakan attribut event</p>
+    <button onclick="handleClick()">click me</button>
+
+    <button class="btn">show</button>
+    <button class="simpan">simpan</button>
+
+    <div id="root"></div>
+    <script>
+
+        // atribut method
+        const elP = document.getElementById('content')
+        const elRoot = document.getElementById('root')
+        const elBtn = document.querySelector('.btn')
+        const elBtnSimpan = document.querySelector('.simpan')
+
+        const handleClick = ()=>{
+            elP.classList.toggle('red')
+        }
+
+        // element method
+
+        elBtn.onclick = ()=>{
+            console.log(elRoot.innerHTML);
+            if (elRoot.innerHTML){
+                elRoot.innerHTML = ""
+            }else{
+                elRoot.innerHTML = "<h1>My Name Risano</h1>"
+            }
+        }
+        elP.onmouseover=()=>{
+            window.alert("jangan sentuh")
+        }
+
+
+        // addEventListener
+
+        
+        elBtnSimpan.addEventListener('click', ()=>{
+            elRoot.innerHTML = "<p>belajar dom itu mudah</p>"
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{
+            text-align: center;
+        }
+        .card{
+            width: 200px;
+            height: 250px;
+            border-radius: 12px;
+            padding: 12px 8px;
+            border: 1px solid grey;
+        }
+
+        #root{
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 class="title">data post</h2>
+
+    <div id="root"></div>
+
+    <script>
+        const elRoot = document.getElementById('root')
+
+        fetch('https://jsonplaceholder.typicode.com/posts')
+        .then((res)=>res.json())
+        .then((res)=>{
+           
+            let temp = ""
+            res.map((post)=>{
+                temp = temp + `
+                <div class='card'>
+                    <h3>${post.title}</h3>
+                    <p>${post.body}</p>
+                </div>`
+            })
+            console.log(temp);
+            elRoot.innerHTML = temp
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+
+    </script>
+</body>
+</html>
